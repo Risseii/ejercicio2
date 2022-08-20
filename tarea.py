@@ -10,14 +10,11 @@ df_counted = pd.read_csv("https://storage.googleapis.com/mojix-devops-wildfire-b
 #df_expected.sample(2).T
 df_expected.sample(2).T
 
-#removing duplicates Reatil product SKU
-df_expected.drop_duplicates(subset='Retail_Product_SKU',keep='first')
-
-#removing duplicates RFID
-df_counted.drop_duplicates(subset='RFID',keep='first')
-
 #shape
 df_expected.shape
+
+#removing duplicates RFID
+df_counted = df_counted.drop_duplicates("RFID")
 
 #group by
 df_B = df_counted.groupby("Retail_Product_SKU").count()[["RFID"]].reset_index().rename(columns={"RFID":"Retail_CCQTY"})
