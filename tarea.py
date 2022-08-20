@@ -49,6 +49,8 @@ df_A.head().T
 st.write('Discrepancy head')
 df_discrepancy = pd.merge(df_A, df_B, how="outer", left_on="Retail_Product_SKU", right_on="Retail_Product_SKU")
 df_discrepancy.head()
-
+df_discrepancy['Retail_CCQTY'] = df_discrepancy['Retail_CCQTY'].fillna(0)
+df_discrepancy["Retail_CCQTY"] = df_discrepancy["Retail_CCQTY"].astype(int)
+df_discrepancy.head()
 
 
