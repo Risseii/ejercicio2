@@ -15,6 +15,8 @@ df_expected.shape
 
 st.write('Number of unique values : Retail pdt sku')
 df_expected["Retail_Product_SKU"].nunique()
+
+st.write('Sample df_counted')
 df_counted.sample(2).T
 
 st.write('Shape df_counted')
@@ -46,5 +48,7 @@ df_A.head().T
 
 st.write('Discrepancy head')
 df_discrepancy = pd.merge(df_A, df_B, how="outer", left_on="Retail_Product_SKU", right_on="Retail_Product_SKU", indicator=True)
-df_discrepancy.head()
+df_discrepancy.head(6)
+
+
 
