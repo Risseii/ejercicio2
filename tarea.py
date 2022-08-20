@@ -47,8 +47,8 @@ df_A = df_expected[my_cols_selected]
 df_A.head().T
 
 st.write('Discrepancy head')
-df_discrepancy = pd.merge(df_A, df_B, how="outer", left_on="Retail_Product_SKU", right_on="Retail_Product_SKU", indicator=True)
-df_discrepancy.head(6)
+df_discrepancy = pd.merge(df_A, df_B, how="outer", left_on="Retail_Product_SKU", right_on="Retail_Product_SKU")
+df_discrepancy.head()
 
 
 
