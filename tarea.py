@@ -28,3 +28,24 @@ df_counted = df_counted.drop_duplicates("RFID")
 #group by
 df_B = df_counted.groupby("Retail_Product_SKU").count()[["RFID"]].reset_index().rename(columns={"RFID":"Retail_CCQTY"})
 df_B.sample(10)
+
+my_cols_selected = ["Retail_Product_Color",
+"Retail_Product_Level1",
+"Retail_Product_Level1Name",
+"Retail_Product_Level2Name",
+"Retail_Product_Level3Name",
+"Retail_Product_Level4Name",
+"Retail_Product_Name",
+"Retail_Product_SKU",
+"Retail_Product_Size",
+"Retail_Product_Style",
+"Retail_SOHQTY"]
+
+df_A = df_expected[my_cols_selected]
+
+df_A.head().T
+
+df_discrepancy = pd.merge(df_A, df_B, how="outer", left_on="Retail_Product_SKU", right_on="Retail_Product_SKU", indicator=True)
+
+df_discrepancy.head()
+
