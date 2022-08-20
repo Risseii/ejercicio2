@@ -24,11 +24,12 @@ st.write('Removing dup')
 #removing duplicates RFID
 df_counted = df_counted.drop_duplicates("RFID")
 df_counted.sample(2).T
+st.write('After removing dup')
 df_counted.shape
 
 st.write('Group by')
 df_B = df_counted.groupby("Retail_Product_SKU").count()[["RFID"]].reset_index().rename(columns={"RFID":"Retail_CCQTY"})
-df_B.sample(10).T
+df_B.sample(10)
 
 my_cols_selected = ["Retail_Product_Color",
 "Retail_Product_Level1",
