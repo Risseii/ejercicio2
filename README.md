@@ -1,2 +1,2 @@
-# Data app
-Stock/Inventory Discrepancy (Analytics)
+# Data app!!
+Exercise Stock/Inventory Discrepancy (Analytics)
